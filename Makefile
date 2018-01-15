@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/15 18:18:07 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/15 19:10:53 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,20 +28,21 @@ NAME_SWAP = push_swap
 ARG = 2 5 6 8 9 7 10
 
 FILES_CHECK = main_check.c \
-			  ft_create_stack.c \
-			  ft_error.c \
-			  ft_close_check.c \
-			  ft_resolve.c \
-			  ft_verif_end.c \
-			  stk/ft_stk_add.c \
-			  stk/ft_stk_del.c \
-			  stk/ft_stk_print.c \
-			  stk/ft_ss.c \
-			  stk/ft_pp.c \
-			  stk/ft_rr.c \
-			  stk/ft_rrr.c
+		ft_close_check.c \
+		ft_verif_end_check.c \
+		ft_resolve_check.c
 
 FILES_SWAP = main_swap.c
+
+FILES = ft_create_stack.c \
+		ft_error.c \
+		stk/ft_stk_add.c \
+		stk/ft_stk_del.c \
+		stk/ft_stk_print.c \
+		stk/ft_ss.c \
+		stk/ft_pp.c \
+		stk/ft_rr.c \
+		stk/ft_rrr.c
 
 HFILES = includes/push_swap.h \
 		 includes/push_swap_struct.h
@@ -59,6 +60,8 @@ LIBFT_DIR = libft/
 LIBFT_LIB = -L $(LIBFT_DIR) -lft
 
 INC := $(addprefix -I , $(INC_DIR))
+SRCS := $(addprefix $(SRCS_DIR)commun/, $(FILES))
+OBJ := $(addprefix $(OBJ_DIR)commun/, $(FILES:.c=.o))
 SRCS_CHECK := $(addprefix $(SRCS_DIR)checker/, $(FILES_CHECK))
 OBJ_CHECK := $(addprefix $(OBJ_DIR)checker/, $(FILES_CHECK:.c=.o))
 SRCS_SWAP := $(addprefix $(SRCS_DIR)push_swap/, $(FILES_SWAP))
@@ -88,13 +91,13 @@ all:
 	@make $(NAME_SWAP)
 	$(END_SWAP)
 
-$(NAME_CHECK): $(LIBFT_DIR)libft.a $(OBJ_DIR) $(OBJ_CHECK)
+$(NAME_CHECK): $(LIBFT_DIR)libft.a $(OBJ_DIR) $(OBJ_CHECK) $(OBJ)
 	@printf $(CYAN)"-> create program : $(NAME_CHECK)\n"$(NORMAL)
-	@$(CC) -o $(NAME_CHECK) $(OBJ_CHECK) $(CFLAGS) $(LIBFT_LIB)
+	@$(CC) -o $(NAME_CHECK) $(OBJ_CHECK) $(OBJ) $(CFLAGS) $(LIBFT_LIB)
 
-$(NAME_SWAP): $(LIBFT_DIR)libft.a $(OBJ_DIR) $(OBJ_SWAP)
+$(NAME_SWAP): $(LIBFT_DIR)libft.a $(OBJ_DIR) $(OBJ_SWAP) $(OBJ)
 	@printf $(CYAN)"-> create program : $(NAME_SWAP)\n"$(NORMAL)
-	@$(CC) -o $(NAME_SWAP) $(OBJ_SWAP) $(CFLAGS) $(LIBFT_LIB)
+	@$(CC) -o $(NAME_SWAP) $(OBJ_SWAP) $(OBJ) $(CFLAGS) $(LIBFT_LIB)
 
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c $(HFILES) $(OBJ_DIR) $(LIBFT_DIR)libft.a
 	@printf $(YELLOW)"-> $<\n"$(NORMAL)
@@ -103,6 +106,7 @@ $(OBJ_DIR)%.o: $(SRCS_DIR)%.c $(HFILES) $(OBJ_DIR) $(LIBFT_DIR)libft.a
 $(OBJ_DIR):
 	@mkdir -p $(dir $(OBJ_CHECK))
 	@mkdir -p $(dir $(OBJ_SWAP))
+	@mkdir -p $(dir $(OBJ))
 
 $(LIBFT_DIR)libft.a:
 	@make -C $(LIBFT_DIR)

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_pp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 16:47:12 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:09:52 by tnicolas         ###   ########.fr       */
+/*   Created: 2018/01/15 16:15:32 by tnicolas          #+#    #+#             */
+/*   Updated: 2018/01/15 17:39:59 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
-**   | ft_atoi.c                                                |
-**   |     ft_atoi(11 lines)                                    |
+**   | ft_pp.c                                                  |
+**   |     ft_pa(8 lines)                                       |
+**   |     ft_pb(8 lines)                                       |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -23,17 +24,28 @@
 **     |||   |||
 */
 
-int			ft_atoi(const char *nptr)
-{
-	int		ret;
-	int		neg;
+#include <push_swap.h>
 
-	while (!(ret = 0) && (*nptr == ' ' || *nptr == '\t' || *nptr == '\n' ||
-			*nptr == '\v' || *nptr == '\f' || *nptr == '\r'))
-		++nptr;
-	neg = (*nptr == '-') ? -1 : 1;
-	nptr = (*nptr == '-' || *nptr == '+') ? nptr : nptr - 1;
-	while (*(++nptr) >= '0' && *nptr <= '9')
-		ret = ret * 10 + *nptr - '0';
-	return (ret * neg);
+void		ft_pa(t_a *a)
+{
+	t_stk	*stk;
+
+	if (a->stk_b == NULL)
+		return ;
+	stk = a->stk_b;
+	a->stk_b = a->stk_b->next;
+	stk->next = a->stk_a;
+	a->stk_a = stk;
+}
+
+void		ft_pb(t_a *a)
+{
+	t_stk	*stk;
+
+	if (a->stk_a == NULL)
+		return ;
+	stk = a->stk_a;
+	a->stk_a = a->stk_a->next;
+	stk->next = a->stk_b;
+	a->stk_b = stk;
 }

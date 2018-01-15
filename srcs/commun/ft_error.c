@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 16:47:12 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:09:52 by tnicolas         ###   ########.fr       */
+/*   Created: 2018/01/15 12:42:46 by tnicolas          #+#    #+#             */
+/*   Updated: 2018/01/15 17:39:59 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
-**   | ft_atoi.c                                                |
-**   |     ft_atoi(11 lines)                                    |
+**   | ft_error.c                                               |
+**   |     ft_error(2 lines)                                    |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -23,17 +23,10 @@
 **     |||   |||
 */
 
-int			ft_atoi(const char *nptr)
-{
-	int		ret;
-	int		neg;
+#include <push_swap.h>
 
-	while (!(ret = 0) && (*nptr == ' ' || *nptr == '\t' || *nptr == '\n' ||
-			*nptr == '\v' || *nptr == '\f' || *nptr == '\r'))
-		++nptr;
-	neg = (*nptr == '-') ? -1 : 1;
-	nptr = (*nptr == '-' || *nptr == '+') ? nptr : nptr - 1;
-	while (*(++nptr) >= '0' && *nptr <= '9')
-		ret = ret * 10 + *nptr - '0';
-	return (ret * neg);
+void		ft_error()
+{
+	ft_dprintf(STDERR_FILENO, ERROR_MSG);
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:27:40 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 18:17:56 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/15 19:01:03 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 # include <unistd.h>
 # include <limits.h>
 
+/*
+** commun
+*/
+
 void		ft_create_stack(t_a *a, int sz, char **arg);
 void		ft_error();
-void		ft_close_check(t_a *a);
-void		ft_resolve(t_a *a);
-void		ft_verif_end(t_a *a);
 
 t_stk		*ft_stk_add(t_stk **first, int nb);
 void		ft_stk_del(t_stk **stk);
@@ -40,5 +41,17 @@ void		ft_rr(t_a *a);
 void		ft_rra(t_a *a);
 void		ft_rrb(t_a *a);
 void		ft_rrr(t_a *a);
+
+/*
+** push_swap
+*/
+
+/*
+** checker
+*/
+
+void		ft_close_check(t_a *a);
+void		ft_resolve_check(t_a *a);
+void		ft_verif_end_check(t_a *a);
 
 #endif
