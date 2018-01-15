@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/15 19:10:53 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/15 20:00:45 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,13 @@ NAME_SWAP = push_swap
 ARG = 2 5 6 8 9 7 10
 
 FILES_CHECK = main_check.c \
-		ft_close_check.c \
-		ft_verif_end_check.c \
-		ft_resolve_check.c
+			  ft_close_check.c \
+			  ft_verif_end_check.c \
+			  ft_resolve_check.c
 
-FILES_SWAP = main_swap.c
+FILES_SWAP = main_swap.c \
+			 ft_resolve_swap.c \
+			 ft_close_swap.c
 
 FILES = ft_create_stack.c \
 		ft_error.c \
@@ -132,8 +134,15 @@ exec:
 	@clear
 	@make
 	@printf $(MAGENTA)"EXEC\n--------------------\n"$(NORMAL)
-	./$(NAME_SWAP) $(ARG) | wc -l
-	./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG)
+	@printf $(YELLOW)"stack:\n{\n"$(NORMAL)
+	@echo $(ARG) | tr " " "\n" | sed "s/^/    /g"
+	@printf $(YELLOW)"}\n\nnb d'instruction:\n{\n"$(GREEN)
+	@./$(NAME_SWAP) $(ARG) | wc -l | sed "s/ //g" | sed "s/^/    /g"
+	@printf $(YELLOW)"}\n\ninstructions:\n{\n"$(NORMAL)
+	@./$(NAME_SWAP) $(ARG) | sed "s/^/    /g"
+	@printf $(YELLOW)"}\n\nresult:\n{\n"$(NORMAL)
+	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/^/    /g"
+	@printf $(YELLOW)"}\n"$(NORMAL)
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
 exec_checker:
@@ -152,13 +161,13 @@ exec_push_swap:
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
 open:
-	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) Makefile
+	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile
 
 open_checker:
-	@vim +Line $(HFILES) $(SRCS_CHECK) Makefile
+	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS) Makefile
 
 open_push_swap:
-	@vim +Line $(HFILES) $(SRCS_SWAP) Makefile
+	@vim +Line $(HFILES) $(SRCS_SWAP) $(SRCS) Makefile
 
 norm:
 	@make -C $(LIBFT_DIR) norm

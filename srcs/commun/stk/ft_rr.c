@@ -6,16 +6,16 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 17:40:22 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 17:56:27 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/15 19:54:36 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
 **   | ft_rr.c                                                  |
-**   |     ft_ra(10 lines)                                      |
-**   |     ft_rb(10 lines)                                      |
-**   |     ft_rr(2 lines)                                       |
+**   |     ft_ra(12 lines)                                      |
+**   |     ft_rb(12 lines)                                      |
+**   |     ft_rr(4 lines)                                       |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -27,7 +27,7 @@
 
 #include <push_swap.h>
 
-void		ft_ra(t_a *a)
+void		ft_ra(t_a *a, int print)
 {
 	t_stk	*stk;
 
@@ -39,9 +39,11 @@ void		ft_ra(t_a *a)
 	stk->next = a->stk_a;
 	a->stk_a = a->stk_a->next;
 	stk->next->next = NULL;
+	if (print)
+		ft_printf(RA"\n");
 }
 
-void		ft_rb(t_a *a)
+void		ft_rb(t_a *a, int print)
 {
 	t_stk	*stk;
 
@@ -53,10 +55,14 @@ void		ft_rb(t_a *a)
 	stk->next = a->stk_b;
 	a->stk_b = a->stk_b->next;
 	stk->next->next = NULL;
+	if (print)
+		ft_printf(RB"\n");
 }
 
-void		ft_rr(t_a *a)
+void		ft_rr(t_a *a, int print)
 {
-	ft_ra(a);
-	ft_rb(a);
+	ft_ra(a, 0);
+	ft_rb(a, 0);
+	if (print)
+		ft_printf(RR"\n");
 }
