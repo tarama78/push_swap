@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 14:15:42 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/10 15:41:32 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/15 14:56:59 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ t_list		*ft_lstget(t_list *lst, int n);
 int			ft_max(int a, int b);
 int			ft_min(int a, int b);
 size_t		ft_intlen(int n);
+long long	ft_atol(const char *nptr);
 void		*ft_realloc(void *ptr, size_t original_size, size_t new_size);
 int			ft_read_fd(int fd, char **file_content);
 int			ft_read_file(char *filename, char **file_content);

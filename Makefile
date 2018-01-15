@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/15 12:50:02 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/15 18:18:07 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,17 @@ ARG = 2 5 6 8 9 7 10
 
 FILES_CHECK = main_check.c \
 			  ft_create_stack.c \
-			  ft_error.c
+			  ft_error.c \
+			  ft_close_check.c \
+			  ft_resolve.c \
+			  ft_verif_end.c \
+			  stk/ft_stk_add.c \
+			  stk/ft_stk_del.c \
+			  stk/ft_stk_print.c \
+			  stk/ft_ss.c \
+			  stk/ft_pp.c \
+			  stk/ft_rr.c \
+			  stk/ft_rrr.c
 
 FILES_SWAP = main_swap.c
 
@@ -115,6 +125,7 @@ re: fclean
 	@make
 
 exec:
+	@clear
 	@make
 	@printf $(MAGENTA)"EXEC\n--------------------\n"$(NORMAL)
 	./$(NAME_SWAP) $(ARG) | wc -l
@@ -122,12 +133,14 @@ exec:
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
 exec_checker:
+	@clear
 	@make
 	@printf $(MAGENTA)"EXEC CHECKER\n--------------------\n"$(NORMAL)
 	./$(NAME_CHECK) $(ARG)
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
 exec_push_swap:
+	@clear
 	@make
 	@printf $(MAGENTA)"EXEC PUSH_SWAP\n--------------------\n"$(NORMAL)
 	./$(NAME_SWAP) $(ARG) | wc -l
