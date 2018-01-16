@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/16 18:16:32 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/16 20:05:09 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,10 +65,10 @@ LIBFT_LIB = -L $(LIBFT_DIR) -lft
 INC := $(addprefix -I , $(INC_DIR))
 SRCS := $(addprefix $(SRCS_DIR)commun/, $(FILES))
 OBJ := $(addprefix $(OBJ_DIR)commun/, $(FILES:.c=.o))
-SRCS_CHECK := $(addprefix $(SRCS_DIR)checker/, $(FILES_CHECK))
-OBJ_CHECK := $(addprefix $(OBJ_DIR)checker/, $(FILES_CHECK:.c=.o))
-SRCS_SWAP := $(addprefix $(SRCS_DIR)push_swap/, $(FILES_SWAP))
-OBJ_SWAP := $(addprefix $(OBJ_DIR)push_swap/, $(FILES_SWAP:.c=.o))
+SRCS_CHECK := $(addprefix $(SRCS_DIR)checker_srcs/, $(FILES_CHECK))
+OBJ_CHECK := $(addprefix $(OBJ_DIR)checker_srcs/, $(FILES_CHECK:.c=.o))
+SRCS_SWAP := $(addprefix $(SRCS_DIR)push_swap_srcs/, $(FILES_SWAP))
+OBJ_SWAP := $(addprefix $(OBJ_DIR)push_swap_srcs/, $(FILES_SWAP:.c=.o))
 
 NORMAL = "\x1B[0m"
 RED = "\x1B[31m"
