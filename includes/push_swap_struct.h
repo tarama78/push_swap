@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:32:07 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:54:35 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:47:08 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ typedef struct		s_a
 {
 	t_stk			*stk_a;
 	t_stk			*stk_b;
+	int				sz_a;
+	int				sz_b;
+	int				sz_list;
 }					t_a;
 
 #endif

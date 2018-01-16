@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:37:47 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:54:35 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/16 12:06:22 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,19 @@
 */
 
 #include <push_swap.h>
+
+static void	ft_doublon(t_a *a, int nb)
+{
+	t_stk	*stk;
+
+	stk = a->stk_a;
+	while (stk)
+	{
+		if (stk->nb == nb)
+			ft_error();
+		stk = stk->next;
+	}
+}
 
 static int	ft_check_nb(char *s, int *nb)
 {
@@ -49,11 +62,16 @@ void		ft_create_stack(t_a *a, int sz, char **arg)
 	int		i;
 
 	i = sz;
+	a->sz_a = 0;
+	a->sz_b = 0;
+	a->stk_b = NULL;
 	while (--i >= 0)
 	{
 		if (ft_check_nb(arg[i], &nb) == ERROR)
 			ft_error();
+		ft_doublon(a, nb);
 		ft_stk_add(&a->stk_a, nb);
+		a->sz_a++;
 	}
-	a->stk_b = NULL;
+	a->sz_list = a->sz_a;
 }

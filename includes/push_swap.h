@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:27:40 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:54:35 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/16 12:00:38 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,10 @@ void		ft_close_swap(t_a *a);
 void		ft_close_check(t_a *a);
 void		ft_resolve_check(t_a *a);
 void		ft_verif_end_check(t_a *a);
+
+//dd delete
+void		ft_print_a(t_a *a);//dd
+void		ft_print_b(t_a *a);//dd
+void		ft_print(t_a *a);//dd
 
 #endif
