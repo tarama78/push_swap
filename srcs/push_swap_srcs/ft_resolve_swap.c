@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:21:06 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/16 19:58:16 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/16 20:08:55 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	ft_move_start(t_a *a, int sz1, int *pos_sz1)
 	}
 }
 
-static void	ft_move_end(t_a *a, int sz1, int *pos_sz1)
+static void	ft_move_end(t_a *a, int *pos_sz1)
 {
 	while (*pos_sz1 > 0)
 	{
@@ -107,7 +107,7 @@ static void	ft_sort_bloc(t_a *a, int sz_sort)
 //		}
 
 	}
-	ft_move_end(a, sz1, &pos_sz1);
+	ft_move_end(a, &pos_sz1);
 }
 
 static void	ft_recurs(t_a *a, int sz_sort)
