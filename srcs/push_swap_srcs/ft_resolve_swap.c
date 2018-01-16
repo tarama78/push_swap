@@ -101,8 +101,8 @@ static void	ft_sort_bloc(t_a *a, int sz_sort)
 		}
 //		else
 //		{
-//			ft_printf("{eoc}{RED}c'est Ugo{eoc}\n");//dd
-//			ft_printf("\t(sz1 %d) (sz2 %d) (stka %d) (stkb %d) (pos_sz1 %d)\n", sz1, sz2, a->stk_a->nb, a->stk_b->nb, pos_sz1);//dd
+//			ft_printf("{eoc}{RED}c'est Ugo{eoc}\n");
+//			ft_printf("\t(sz1 %d) (sz2 %d) (stka %d) (stkb %d) (pos_sz1 %d)\n", sz1, sz2, a->stk_a->nb, a->stk_b->nb, pos_sz1);
 //			break;
 //		}
 
