@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:27:40 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/16 12:00:38 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/16 18:04:08 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+//# include <stdio.h>//dd
 
 /*
 ** commun
@@ -28,6 +29,7 @@ void		ft_error();
 
 t_stk		*ft_stk_add(t_stk **first, int nb);
 void		ft_stk_del(t_stk **stk);
+t_stk		*ft_stk_getlast(t_stk *first);
 void		ft_stk_print(t_stk *stk);
 
 void		ft_sa(t_a *a, int print);

@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/16 12:08:26 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/16 18:16:32 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ FILES = ft_create_stack.c \
 		ft_error.c \
 		stk/ft_stk_add.c \
 		stk/ft_stk_del.c \
+		stk/ft_stk_getlast.c \
 		stk/ft_stk_print.c \
 		stk/ft_ss.c \
 		stk/ft_pp.c \
@@ -136,10 +137,10 @@ exec:
 	@printf $(MAGENTA)"EXEC\n--------------------\n"$(NORMAL)
 	@printf $(YELLOW)"stack:\n{\n"$(NORMAL)
 	@echo $(ARG) | tr " " "\n" | sed "s/^/    /g"
-	@printf $(YELLOW)"}\n\nnb d'instruction:\n{\n"$(GREEN)
-	@./$(NAME_SWAP) $(ARG) | wc -l | sed "s/ //g" | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n\ninstructions:\n{\n"$(NORMAL)
 	@./$(NAME_SWAP) $(ARG) | sed "s/^/    /g"
+	@printf $(YELLOW)"}\n\nnb d'instruction:\n{\n"$(GREEN)
+	@./$(NAME_SWAP) $(ARG) | wc -l | sed "s/ //g" | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n\nresult:\n{\n"$(NORMAL)
 	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n"$(NORMAL)
