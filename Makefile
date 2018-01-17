@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/17 11:48:15 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/17 14:25:48 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ FILES = ft_create_stack.c \
 		ft_error.c \
 		stk/ft_stk_add.c \
 		stk/ft_stk_del.c \
+		stk/ft_stk_get.c \
 		stk/ft_stk_getlast.c \
 		stk/ft_stk_print.c \
 		stk/ft_ss.c \

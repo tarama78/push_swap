@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:27:40 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/17 10:33:05 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/17 14:25:26 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		ft_error();
 
 t_stk		*ft_stk_add(t_stk **first, int nb);
 void		ft_stk_del(t_stk **stk);
+t_stk		*ft_stk_get(t_stk *first, int n);
 t_stk		*ft_stk_getlast(t_stk *first);
 void		ft_stk_print(t_stk *stk);
 

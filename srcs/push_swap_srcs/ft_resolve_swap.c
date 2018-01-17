@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:21:06 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/17 12:27:32 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/17 15:01:28 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 **   | ft_resolve_swap.c                                        |
 **   |     ft_sort_int(62 lines)                                |
 **   |         MEUUUU too many lines                            |
-**   |     ft_move_start(6 lines)                               |
-**   |     ft_move_end(5 lines)                                 |
-**   |     ft_sort_bloc(32 lines)                               |
+**   |     ft_move_start(18 lines)                              |
+**   |     ft_move_end(8 lines)                                 |
+**   |     ft_sort_bloc(53 lines)                               |
 **   |         MEUUUU too many lines                            |
-**   |     ft_recurs(18 lines)                                  |
+**   |     ft_recurs(21 lines)                                  |
 **   |     ft_resolve_swap(18 lines)                            |
 **   |     ft_print_a(3 lines)                                  |
 **   |     ft_print_b(3 lines)                                  |
@@ -102,21 +102,36 @@ static void	ft_sort_int(t_a *a, int sz_sort, t_inf inf)
 	}
 }
 
-static void	ft_move_start(t_a *a, int sz1, int *pos_sz1)
+static void	ft_move_start(t_a *a, int sz, int *pos_sz1, t_inf inf)
 {
-	while (sz1 > 0 && a->stk_b->nb > a->stk_a->nb)
+	if (inf & DST_A)
 	{
-		ft_ra(a, 1);
-		--sz1;
-		(*pos_sz1)++;
+		while (sz > 0 && a->stk_b->nb > a->stk_a->nb)
+		{
+			ft_ra(a, 1);
+			--sz;
+			(*pos_sz1)++;
+		}
+	}
+	else
+	{
+		while (sz > 0 && a->stk_a->nb < a->stk_b->nb)// ft_stk_get(a->stk_b, sz - 1)->nb)
+		{
+			ft_rb(a, 1);
+			--sz;
+			(*pos_sz1)++;
+		}
 	}
 }
 
-static void	ft_move_end(t_a *a, int *pos_sz1)
+static void	ft_move_end(t_a *a, int *pos_sz1, t_inf inf)
 {
 	while (*pos_sz1 > 0)
 	{
-		ft_rra(a, 1);
+		if (inf & DST_A)
+			ft_rra(a, 1);
+		else
+			ft_rrb(a, 1);
 		(*pos_sz1)--;
 	}
 }
@@ -128,32 +143,53 @@ static void	ft_sort_bloc(t_a *a, int sz_sort, t_inf inf)
 	int		sz2;
 	int		i;
 
-	pos_sz1 = 0;
-	sz1 = sz_sort >> 1;
-	sz2 = ((sz_sort & 1) == 0) ? sz1 : sz1++;
-	ft_move_start(a, sz1, &pos_sz1);
-	while (sz2 > 0)
+	if (inf & DST_A)
 	{
-		if (((a->stk_b->nb < a->stk_a->nb) &&
-				((pos_sz1 == 0) || (a->stk_b->nb > ft_stk_getlast(a->stk_a)->nb)))
-				|| (pos_sz1 == sz1))
+		pos_sz1 = 0;
+		sz1 = sz_sort >> 1;
+		sz2 = ((sz_sort & 1) == 0) ? sz1 : sz1++;
+		ft_move_start(a, sz1, &pos_sz1, inf);
+		while (sz2 > 0)
 		{
-			ft_pa(a, 1);
-			--sz2;
-			++sz1;
+			if (((a->stk_b->nb < a->stk_a->nb) &&
+						((pos_sz1 == 0) || (a->stk_b->nb > ft_stk_getlast(a->stk_a)->nb)))
+					|| (pos_sz1 == sz1))
+			{
+				ft_pa(a, 1);
+				--sz2;
+				++sz1;
+			}
+			else
+			{
+				ft_rra(a, 1);
+				--pos_sz1;
+			}
 		}
-		else
-		{
-			ft_rra(a, 1);
-			--pos_sz1;
-		}
+		ft_move_end(a, &pos_sz1, inf);
 	}
-	ft_move_end(a, &pos_sz1);
-	if (inf & DST_B)
+	else
 	{
-		i = -1;
-		while (++i < sz_sort)
-			ft_pb(a, 1);
+		pos_sz1 = 0;
+		sz1 = sz_sort >> 1;
+		sz2 = ((sz_sort & 1) == 0) ? sz1 : sz1++;
+		ft_move_start(a, sz2, &pos_sz1, inf);
+		while (sz1 > 0)
+		{
+			if (((a->stk_a->nb > a->stk_b->nb) &&
+						((pos_sz1 == 0) || (a->stk_a->nb < ft_stk_getlast(a->stk_b)->nb)))
+					|| (pos_sz1 == sz2))
+			{
+				ft_pb(a, 1);
+				++sz2;
+				--sz1;
+			}
+			else
+			{
+				ft_rrb(a, 1);
+				--pos_sz1;
+			}
+		}
+		ft_move_end(a, &pos_sz1, inf);
 	}
 }
 
@@ -175,7 +211,7 @@ static void	ft_recurs(t_a *a, int sz_sort, t_inf inf)
 	sz2 = ((sz_sort & 1) == 0) ? sz1 : sz1 + 1;
 	ft_recurs(a, sz1, SRC_A | DST_B);
 	ft_recurs(a, sz2, SRC_A | DST_A);
-//	ft_printf("{green}start sort_bloc %d\n", sz_sort);//dd
+//	ft_printf("{green}start sort_bloc (nb_int %d) (dst %c)\n", sz_sort, ((inf & DST_A) ? 'A' : 'B'));//dd
 	ft_sort_bloc(a, sz_sort, inf);
 //	ft_printf("end sort_bloc %d{eoc}\n", sz_sort);//dd
 }
