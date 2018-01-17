@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/17 14:25:48 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/17 15:23:33 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -141,9 +141,9 @@ exec:
 	@printf $(YELLOW)"}\n\ninstructions:\n{\n"$(NORMAL)
 	@./$(NAME_SWAP) $(ARG) | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n\nnb d'instruction:\n{\n"$(GREEN)
-	@./$(NAME_SWAP) $(ARG) | wc -l | sed "s/ //g" | sed "s/^/    /g"
+	@./$(NAME_SWAP) $(ARG) 2> .error | wc -l | sed "s/ //g" | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n\nresult:\n{\n"$(NORMAL)
-	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/^/    /g"
+	@./$(NAME_SWAP) $(ARG) 2> .error | ./$(NAME_CHECK) $(ARG) | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n"$(NORMAL)
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
