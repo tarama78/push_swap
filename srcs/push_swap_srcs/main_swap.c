@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:14:58 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:54:35 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/17 15:11:28 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ int			main(int ac, char **av)
 
 	if (ac > 2)
 	{
+		if (!(a.res = ft_strnew(0)))
+			ft_error();
 		ft_create_stack(&a, ac - 1, av + 1);
 		ft_resolve_swap(&a);
+		ft_printf(a.res);
+		free(a.res);
 		ft_close_swap(&a);
 	}
 	return (0);
