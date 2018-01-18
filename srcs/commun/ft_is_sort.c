@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_verif_end_check.c                               :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 19:02:32 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:02:39 by tnicolas         ###   ########.fr       */
+/*   Created: 2018/01/18 11:55:29 by tnicolas          #+#    #+#             */
+/*   Updated: 2018/01/18 11:55:34 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
-**   | ft_verif_end_check.c                                     |
-**   |     ft_verif_end(18 lines)                               |
+**   | ft_is_sort.c                                             |
+**   |     ft_is_sort(22 lines)                                 |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -26,24 +26,28 @@
 
 #include <push_swap.h>
 
-void		ft_verif_end_check(t_a *a)
+int			ft_is_sort(t_a *a, int print)
 {
 	t_stk	*stk;
 
 	if (a->stk_b != NULL)
 	{
-		ft_printf("KO\n");
-		return ;
+		if (print)
+			ft_printf("KO\n");
+		return (0);
 	}
 	stk = a->stk_a;
 	while (stk->next)
 	{
 		if (stk->nb >= stk->next->nb)
 		{
-			ft_printf("KO\n");
-			return ;
+			if (print)
+				ft_printf("KO\n");
+			return (0);
 		}
 		stk = stk->next;
 	}
-	ft_printf("OK\n");
+	if (print)
+		ft_printf("OK\n");
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:32:07 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/17 15:10:48 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 11:35:32 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ typedef enum		e_inf
 	DST_A = 0x4,
 	DST_B = 0x8
 }					t_inf;
+
+typedef enum		e_inf_small
+{
+	NOTHING_SMALL = 0x0,
+	MIN_A = 0x1,
+	MIN_B = 0x2,
+	TEST_A = 0x4,
+	TEST_B = 0x8
+}					t_inf_small;
 
 typedef struct		s_stk
 {

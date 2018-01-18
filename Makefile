@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/17 15:23:33 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/18 11:56:30 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,16 @@ ARG = 2 5 6 8 9 7 10
 
 FILES_CHECK = main_check.c \
 			  ft_close_check.c \
-			  ft_verif_end_check.c \
 			  ft_resolve_check.c
 
 FILES_SWAP = main_swap.c \
 			 ft_resolve_swap.c \
+			 ft_resolve_small.c \
 			 ft_close_swap.c
 
 FILES = ft_create_stack.c \
 		ft_error.c \
+		ft_is_sort.c \
 		stk/ft_stk_add.c \
 		stk/ft_stk_del.c \
 		stk/ft_stk_get.c \

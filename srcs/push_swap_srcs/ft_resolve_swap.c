@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:21:06 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/17 15:01:28 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 10:54:25 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 
 static void	ft_sort_int(t_a *a, int sz_sort, t_inf inf)
 {
-	int		i;
 	int		max;
 
 	if (inf & DST_A)
@@ -115,7 +114,7 @@ static void	ft_move_start(t_a *a, int sz, int *pos_sz1, t_inf inf)
 	}
 	else
 	{
-		while (sz > 0 && a->stk_a->nb < a->stk_b->nb)// ft_stk_get(a->stk_b, sz - 1)->nb)
+		while (sz > 0 && a->stk_a->nb < a->stk_b->nb)
 		{
 			ft_rb(a, 1);
 			--sz;
@@ -141,7 +140,6 @@ static void	ft_sort_bloc(t_a *a, int sz_sort, t_inf inf)
 	int		sz1;
 	int		pos_sz1;
 	int		sz2;
-	int		i;
 
 	if (inf & DST_A)
 	{
@@ -195,7 +193,6 @@ static void	ft_sort_bloc(t_a *a, int sz_sort, t_inf inf)
 
 static void	ft_recurs(t_a *a, int sz_sort, t_inf inf)
 {
-	int		i;
 	int		sz1;
 	int		sz2;
 
@@ -234,7 +231,10 @@ void		ft_resolve_swap(t_a *a)
 	}
 	if (end == 0)
 		return ;
-	ft_recurs(a, a->sz_list, SRC_A | DST_A);
+	if (a->sz_list < 30)
+		ft_resolve_small(a);
+	else
+		ft_recurs(a, a->sz_list, SRC_A | DST_A);
 //	ft_print(a);//dd
 }
 

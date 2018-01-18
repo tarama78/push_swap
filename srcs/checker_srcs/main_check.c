@@ -6,15 +6,14 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:14:32 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/16 12:07:33 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 11:56:13 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
 **   | main_check.c                                             |
-**   |     main(26 lines)                                       |
-**   |         MEUUUU too many lines                            |
+**   |     main(12 lines)                                       |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -34,7 +33,7 @@ int			main(int ac, char **av)
 	{
 		ft_create_stack(&a, ac - 1, av + 1);
 		ft_resolve_check(&a);
-		ft_verif_end_check(&a);
+		ft_is_sort(&a, 1);
 		ft_close_check(&a);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 14:22:18 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/17 14:37:30 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 11:20:04 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,19 @@ t_stk		*ft_stk_get(t_stk *first, int n)
 			break ;
 	}
 	return (first);
+}
+
+int			ft_stk_get_pos(t_stk *first, int nb)
+{
+	int		i;
+
+	i = 0;
+	while (first)
+	{
+		if (first->nb == nb)
+			return (i);
+		i++;
+		first = first->next;
+	}
+	return (-1);
 }
