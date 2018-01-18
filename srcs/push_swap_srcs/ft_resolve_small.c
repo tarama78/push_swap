@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 10:50:22 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 12:55:22 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 14:56:20 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,40 +62,97 @@ static void	ft_get_min(t_a *a, t_ll *min, t_ll *last_min, t_inf_small *inf)
 	ft_get_min_stk(a, min, last_min, inf);
 }
 
-static void	ft_put_nb_a_first(t_a *a, int min, t_inf_small inf)
+static void	ft_put_nb_a_first(t_a *a, int *min, int *last_min, t_inf_small *inf)
 {
-	int		pos;
 	int		i;
+	int		pos;
+	int		pos2;
+	t_ll	min2;
+	t_ll	last_min2;
 
-	pos = ft_stk_get_pos(a->stk_a, min);
+	pos = ft_stk_get_pos(a->stk_a, *min);
+	min2 = *min;
+	last_min2 = min2;
 	i = -1;
 	if (pos < (a->sz_a >> 1))
+	{
+		ft_get_min(a, &min2, &last_min2, inf);
+		if (*inf & MIN_A)
+		{
+			pos2 = ft_stk_get_pos(a->stk_a, min2);
+			if (pos2 + 1 == pos)
+			{
+				while (++i < pos2)
+					ft_ra(a, 1);
+				ft_sa(a, 1);
+				ft_ra(a, 1);
+				ft_ra(a, 1);
+				*min = min2;
+				*last_min = last_min2;
+				return ;
+			}
+		}
 		while (++i <= pos)
 			ft_ra(a, 1);
-	else
+	}
+	else if (pos < a->sz_a)
+	{
+		ft_get_min(a, &min2, &last_min2, inf);
+		if (*inf & MIN_A)
+		{
+			pos2 = ft_stk_get_pos(a->stk_a, min2);
+			if (pos2 - 1 == pos)
+			{
+				while (++i < a->sz_a - pos2 - 1)
+					ft_rra(a, 1);
+				*min = min2;
+				*last_min = last_min2;
+				return ;
+			}
+		}
 		while (++i < a->sz_a - pos - 1)
 			ft_rra(a, 1);
+	}
 }
 
-static void	ft_put_nb_a(t_a *a, int min, t_inf_small inf)
+static void	ft_put_nb_a(t_a *a, int *min, int *last_min, t_inf_small *inf)
 {
-	int		pos;
 	int		i;
+	int		pos;
+	int		pos2;
+	t_ll	min2;
+	t_ll	last_min2;
 
-	pos = ft_stk_get_pos(a->stk_a, min);
+	pos = ft_stk_get_pos(a->stk_a, *min);
+//	ft_get_min(a, &min2, &last_min2, inf);
+//	if (*inf & MIN_A)
+//	{
+//		pos2 = ft_stk_get_pos(a->stk_a, min2);
+//		if (pos2 + 1 == pos)
+//		{
+//			while (++i < pos2)
+//				ft_pb(a, 1);
+//			ft_sa(a, 1);
+//			ft_ra(a, 1);
+//			ft_ra(a, 1);
+//			*min = min2;
+//			*last_min = last_min2;
+//			return ;
+//		}
+//	}
 	i = 0;
 	while (++i <= pos)
 		ft_pb(a, 1);
 	ft_ra(a, 1);
 }
 
-static void	ft_put_nb_b(t_a *a, int min, t_inf_small inf)
+static void	ft_put_nb_b(t_a *a, int *min, int *last_min, t_inf_small *inf)
 {
 	int		pos;
 	int		i;
 
 //	ft_printf("PUT_B >>>>>>>>\n");//dd
-	pos = ft_stk_get_pos(a->stk_b, min);
+	pos = ft_stk_get_pos(a->stk_b, *min);
 	i = -1;
 	if (pos < ((a->sz_b >> 1) + (a->sz_b & 1)))
 		while (++i < pos)
@@ -113,11 +170,14 @@ void		ft_resolve_small(t_a *a)
 	t_ll		last_min;
 	t_inf_small	inf;
 
+	inf = NOTHING_SMALL;
 //	ft_print(a);//dd
 	last_min = (t_ll)INT_MIN - 1;
+	min = (t_ll)INT_MAX + 1;
 	/////
-//	ft_get_min(a, &min, &last_min, &inf);
-//	ft_put_nb_a_first(a, (int)min, inf);
+	ft_get_min(a, &min, &last_min, &inf);
+	ft_put_nb_a_first(a, (int*)&min, (int*)&last_min, &inf);
+	last_min = min;
 	/////
 //	ft_printf("(min %d) (a %d) (b %d)\n", min, (inf & MIN_A), (inf & MIN_B));//dd
 	while (ft_is_sort(a, 0) == 0)
@@ -126,9 +186,9 @@ void		ft_resolve_small(t_a *a)
 		ft_get_min(a, &min, &last_min, &inf);
 //		ft_printf("(min %d) (a %d) (b %d)\n", min, (inf & MIN_A), (inf & MIN_B));//dd
 		if (inf & MIN_A)
-			ft_put_nb_a(a, (int)min, inf);
+			ft_put_nb_a(a, (int*)&min, (int*)&last_min, &inf);
 		else
-			ft_put_nb_b(a, (int)min, inf);
+			ft_put_nb_b(a, (int*)&min, (int*)&last_min, &inf);
 		last_min = min;
 	}
 //	ft_print(a);//dd

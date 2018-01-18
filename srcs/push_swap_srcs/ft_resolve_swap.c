@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:21:06 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 10:54:25 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 14:25:45 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,7 +231,7 @@ void		ft_resolve_swap(t_a *a)
 	}
 	if (end == 0)
 		return ;
-	if (a->sz_list < 30)
+	if (a->sz_list <= 25)
 		ft_resolve_small(a);
 	else
 		ft_recurs(a, a->sz_list, SRC_A | DST_A);
