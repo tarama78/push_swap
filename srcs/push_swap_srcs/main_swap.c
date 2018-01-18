@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:14:58 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 14:23:45 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 18:42:16 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int			main(int ac, char **av)
 		ft_resolve_swap(&a);
 		ft_close_swap(&a);
 	}
+	else
+		ft_error();
 	return (0);
 }

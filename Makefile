@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/18 18:01:31 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/18 18:40:31 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -164,9 +164,8 @@ exec_push_swap:
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
 test:
-	@printf $(MAGENTA)"TEST\n"$(NORMAL)
-	@./$(NAME_SWAP) $(ARG) | wc -l
-	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG)
+	@./$(NAME_SWAP) $(ARG) | wc -l | sed "s/ //g" | tr "\n" "\t"
+	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/KO/KO >>> FAIL!!!/g"
 
 open:
 	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile
