@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:37:47 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/16 12:06:22 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/17 15:22:18 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ static void	ft_doublon(t_a *a, int nb)
 	while (stk)
 	{
 		if (stk->nb == nb)
+		{
+			ft_stk_del(&a->stk_a);
 			ft_error();
+		}
 		stk = stk->next;
 	}
 }
@@ -68,7 +71,11 @@ void		ft_create_stack(t_a *a, int sz, char **arg)
 	while (--i >= 0)
 	{
 		if (ft_check_nb(arg[i], &nb) == ERROR)
+		{
+			if (i < sz - 1)
+				ft_stk_del(&a->stk_a);
 			ft_error();
+		}
 		ft_doublon(a, nb);
 		ft_stk_add(&a->stk_a, nb);
 		a->sz_a++;

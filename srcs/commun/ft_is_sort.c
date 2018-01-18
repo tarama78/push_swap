@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 11:14:58 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 14:23:45 by tnicolas         ###   ########.fr       */
+/*   Created: 2018/01/18 11:55:29 by tnicolas          #+#    #+#             */
+/*   Updated: 2018/01/18 11:55:34 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
-**   | main_swap.c                                              |
-**   |     main(9 lines)                                        |
+**   | ft_is_sort.c                                             |
+**   |     ft_is_sort(22 lines)                                 |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -23,17 +23,31 @@
 **     |||   |||
 */
 
+
 #include <push_swap.h>
 
-int			main(int ac, char **av)
+int			ft_is_sort(t_a *a, int print)
 {
-	t_a		a;
+	t_stk	*stk;
 
-	if (ac > 2)
+	if (a->stk_b != NULL)
 	{
-		ft_create_stack(&a, ac - 1, av + 1);
-		ft_resolve_swap(&a);
-		ft_close_swap(&a);
+		if (print)
+			ft_printf("KO\n");
+		return (0);
 	}
-	return (0);
+	stk = a->stk_a;
+	while (stk->next)
+	{
+		if (stk->nb >= stk->next->nb)
+		{
+			if (print)
+				ft_printf("KO\n");
+			return (0);
+		}
+		stk = stk->next;
+	}
+	if (print)
+		ft_printf("OK\n");
+	return (1);
 }

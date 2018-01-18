@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:32:07 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/16 11:47:08 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 14:40:06 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,24 @@
 typedef unsigned int		t_ui;
 typedef unsigned long long	t_ull;
 typedef long long			t_ll;
+
+typedef enum		e_inf
+{
+	NOTHING = 0x0,
+	SRC_A = 0x1,
+	SRC_B = 0x2,
+	DST_A = 0x4,
+	DST_B = 0x8
+}					t_inf;
+
+typedef enum		e_inf_small
+{
+	NOTHING_SMALL = 0x0,
+	MIN_A = 0x1,
+	MIN_B = 0x2,
+	TEST_A = 0x4,
+	TEST_B = 0x8
+}					t_inf_small;
 
 typedef struct		s_stk
 {

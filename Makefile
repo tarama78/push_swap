@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/16 20:05:09 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/18 18:01:31 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,19 @@ ARG = 2 5 6 8 9 7 10
 
 FILES_CHECK = main_check.c \
 			  ft_close_check.c \
-			  ft_verif_end_check.c \
 			  ft_resolve_check.c
 
 FILES_SWAP = main_swap.c \
 			 ft_resolve_swap.c \
+			 ft_resolve_small.c \
 			 ft_close_swap.c
 
 FILES = ft_create_stack.c \
 		ft_error.c \
+		ft_is_sort.c \
 		stk/ft_stk_add.c \
 		stk/ft_stk_del.c \
+		stk/ft_stk_get.c \
 		stk/ft_stk_getlast.c \
 		stk/ft_stk_print.c \
 		stk/ft_ss.c \
@@ -140,9 +142,9 @@ exec:
 	@printf $(YELLOW)"}\n\ninstructions:\n{\n"$(NORMAL)
 	@./$(NAME_SWAP) $(ARG) | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n\nnb d'instruction:\n{\n"$(GREEN)
-	@./$(NAME_SWAP) $(ARG) | wc -l | sed "s/ //g" | sed "s/^/    /g"
+	@./$(NAME_SWAP) $(ARG) 2> .error | wc -l | sed "s/ //g" | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n\nresult:\n{\n"$(NORMAL)
-	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/^/    /g"
+	@./$(NAME_SWAP) $(ARG) 2> .error | ./$(NAME_CHECK) $(ARG) | sed "s/^/    /g"
 	@printf $(YELLOW)"}\n"$(NORMAL)
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
 
@@ -160,6 +162,11 @@ exec_push_swap:
 	./$(NAME_SWAP) $(ARG) | wc -l
 	./$(NAME_SWAP) $(ARG)
 	@printf $(MAGENTA)"--------------------\n"$(NORMAL)
+
+test:
+	@printf $(MAGENTA)"TEST\n"$(NORMAL)
+	@./$(NAME_SWAP) $(ARG) | wc -l
+	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG)
 
 open:
 	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile

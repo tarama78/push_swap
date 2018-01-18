@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_verif_end_check.c                               :+:      :+:    :+:   */
+/*   ft_stk_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 19:02:32 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:02:39 by tnicolas         ###   ########.fr       */
+/*   Created: 2018/01/17 14:22:18 by tnicolas          #+#    #+#             */
+/*   Updated: 2018/01/18 11:20:04 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
-**   | ft_verif_end_check.c                                     |
-**   |     ft_verif_end(18 lines)                               |
+**   | ft_stk_get.c                                             |
+**   |     ft_stk_get(13 lines)                                 |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -23,27 +23,36 @@
 **     |||   |||
 */
 
-
 #include <push_swap.h>
 
-void		ft_verif_end_check(t_a *a)
+t_stk		*ft_stk_get(t_stk *first, int n)
 {
-	t_stk	*stk;
+	int		i;
 
-	if (a->stk_b != NULL)
+	if (first == NULL)
+		return (NULL);
+	i = -1;
+	while (++i < n)
 	{
-		ft_printf("KO\n");
-		return ;
+		if (first->next)
+			first = first->next;
+		else
+			break ;
 	}
-	stk = a->stk_a;
-	while (stk->next)
+	return (first);
+}
+
+int			ft_stk_get_pos(t_stk *first, int nb)
+{
+	int		i;
+
+	i = 0;
+	while (first)
 	{
-		if (stk->nb >= stk->next->nb)
-		{
-			ft_printf("KO\n");
-			return ;
-		}
-		stk = stk->next;
+		if (first->nb == nb)
+			return (i);
+		i++;
+		first = first->next;
 	}
-	ft_printf("OK\n");
+	return (-1);
 }
