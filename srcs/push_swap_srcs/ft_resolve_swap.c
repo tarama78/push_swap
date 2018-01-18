@@ -6,21 +6,21 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:21:06 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 14:25:45 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 17:57:24 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
 **   | ft_resolve_swap.c                                        |
-**   |     ft_sort_int(62 lines)                                |
+**   |     ft_sort_int(61 lines)                                |
 **   |         MEUUUU too many lines                            |
 **   |     ft_move_start(18 lines)                              |
 **   |     ft_move_end(8 lines)                                 |
-**   |     ft_sort_bloc(53 lines)                               |
+**   |     ft_sort_bloc(52 lines)                               |
 **   |         MEUUUU too many lines                            |
-**   |     ft_recurs(21 lines)                                  |
-**   |     ft_resolve_swap(18 lines)                            |
+**   |     ft_recurs(18 lines)                                  |
+**   |     ft_resolve_swap(21 lines)                            |
 **   |     ft_print_a(3 lines)                                  |
 **   |     ft_print_b(3 lines)                                  |
 **   |     ft_print(2 lines)                                    |

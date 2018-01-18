@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:02:05 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:28:18 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 18:14:32 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	ft_forest(t_a *a, char *arg)
 		ft_rrb(a, 0);
 	else if (ft_strcmp(arg, RRR) == 0)
 		ft_rrr(a, 0);
-	else
+	else if (ft_fruit(1, arg))
 		ft_error();
 }
 

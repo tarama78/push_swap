@@ -1,0 +1,28 @@
+make
+echo "\nTEST 5"
+make test ARG="`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`"
+
+echo "\nTEST 50"
+make test ARG="`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`"
+
+echo "\nTEST 100"
+make test ARG="`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`"
+
+echo "\nTEST 500"
+make test ARG="`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`"
+make test ARG="`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`"

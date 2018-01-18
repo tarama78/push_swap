@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 10:50:22 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 14:56:20 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 18:18:26 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 **   | ft_resolve_small.c                                       |
 **   |     ft_get_min_stk(18 lines)                             |
 **   |     ft_get_min(5 lines)                                  |
-**   |     ft_put_nb_a_first(11 lines)                          |
-**   |     ft_put_nb_a(8 lines)                                 |
+**   |     ft_put_nb_a_first(64 lines)                          |
+**   |         MEUUUU too many lines                            |
+**   |     ft_put_nb_a(12 lines)                                |
 **   |     ft_put_nb_b(14 lines)                                |
-**   |     ft_resolve_small(21 lines)                           |
+**   |     ft_resolve_small(26 lines)                           |
+**   |         MEUUUU too many lines                            |
 **   | MEUUUU too many functions                                |
 **   ------------------------------------------------------------
 **           __n__n__  /
@@ -91,20 +93,33 @@ static void	ft_put_nb_a_first(t_a *a, int *min, int *last_min, t_inf_small *inf)
 				*last_min = last_min2;
 				return ;
 			}
+			else if (pos == 0 && pos2 == a->sz_a - 1)
+			{
+				ft_rra(a, 1);
+				ft_sa(a, 1);
+				ft_ra(a, 1);
+				ft_ra(a, 1);
+				*min = min2;
+				*last_min = last_min2;
+				return ;
+			}
 		}
 		while (++i <= pos)
 			ft_ra(a, 1);
 	}
-	else if (pos < a->sz_a)
+	else if (pos < a->sz_a - 1)
 	{
 		ft_get_min(a, &min2, &last_min2, inf);
 		if (*inf & MIN_A)
 		{
 			pos2 = ft_stk_get_pos(a->stk_a, min2);
-			if (pos2 - 1 == pos)
+			if (pos2 + 1 == pos)
 			{
-				while (++i < a->sz_a - pos2 - 1)
-					ft_rra(a, 1);
+				while (++i <= pos2)
+					ft_pb(a, 1);
+				ft_ra(a, 1);
+				ft_pa(a, 1);
+				ft_ra(a, 1);
 				*min = min2;
 				*last_min = last_min2;
 				return ;
@@ -115,38 +130,20 @@ static void	ft_put_nb_a_first(t_a *a, int *min, int *last_min, t_inf_small *inf)
 	}
 }
 
-static void	ft_put_nb_a(t_a *a, int *min, int *last_min, t_inf_small *inf)
+static void	ft_put_nb_a(t_a *a, int *min)
 {
 	int		i;
 	int		pos;
-	int		pos2;
-	t_ll	min2;
-	t_ll	last_min2;
 
+//	ft_printf("PUT_A >>>>>>>>\n");//dd
 	pos = ft_stk_get_pos(a->stk_a, *min);
-//	ft_get_min(a, &min2, &last_min2, inf);
-//	if (*inf & MIN_A)
-//	{
-//		pos2 = ft_stk_get_pos(a->stk_a, min2);
-//		if (pos2 + 1 == pos)
-//		{
-//			while (++i < pos2)
-//				ft_pb(a, 1);
-//			ft_sa(a, 1);
-//			ft_ra(a, 1);
-//			ft_ra(a, 1);
-//			*min = min2;
-//			*last_min = last_min2;
-//			return ;
-//		}
-//	}
 	i = 0;
 	while (++i <= pos)
 		ft_pb(a, 1);
 	ft_ra(a, 1);
 }
 
-static void	ft_put_nb_b(t_a *a, int *min, int *last_min, t_inf_small *inf)
+static void	ft_put_nb_b(t_a *a, int *min)
 {
 	int		pos;
 	int		i;
@@ -176,19 +173,19 @@ void		ft_resolve_small(t_a *a)
 	min = (t_ll)INT_MAX + 1;
 	/////
 	ft_get_min(a, &min, &last_min, &inf);
+//	ft_printf("(min %d) (a %d) (b %d)\n", min, (inf & MIN_A), (inf & MIN_B));//dd
 	ft_put_nb_a_first(a, (int*)&min, (int*)&last_min, &inf);
 	last_min = min;
 	/////
-//	ft_printf("(min %d) (a %d) (b %d)\n", min, (inf & MIN_A), (inf & MIN_B));//dd
 	while (ft_is_sort(a, 0) == 0)
 	{
 //		ft_print(a);//dd
 		ft_get_min(a, &min, &last_min, &inf);
 //		ft_printf("(min %d) (a %d) (b %d)\n", min, (inf & MIN_A), (inf & MIN_B));//dd
 		if (inf & MIN_A)
-			ft_put_nb_a(a, (int*)&min, (int*)&last_min, &inf);
+			ft_put_nb_a(a, (int*)&min);
 		else
-			ft_put_nb_b(a, (int*)&min, (int*)&last_min, &inf);
+			ft_put_nb_b(a, (int*)&min);
 		last_min = min;
 	}
 //	ft_print(a);//dd
