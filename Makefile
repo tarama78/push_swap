@@ -6,7 +6,7 @@
 #    By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 09:45:36 by tnicolas          #+#    #+#              #
-#    Updated: 2018/01/18 18:40:31 by tnicolas         ###   ########.fr        #
+#    Updated: 2018/01/18 22:54:16 by tnicolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ FILES_CHECK = main_check.c \
 			  ft_resolve_check.c
 
 FILES_SWAP = main_swap.c \
+			 ft_sort_bloc.c \
 			 ft_resolve_swap.c \
+			 ft_resolve_small_2.c \
 			 ft_resolve_small.c \
 			 ft_close_swap.c
 
@@ -53,7 +55,7 @@ HFILES = includes/push_swap.h \
 		 includes/push_swap_struct.h
 
 CC = gcc
-CFLAGS = -Wall -Wextra ##################################################-Werror
+CFLAGS = -Wall -Wextra -g##################################################-Werror
 
 INC_DIR = includes/ \
 		  $(LIBFT_DIR)includes/ \
