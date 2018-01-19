@@ -55,7 +55,7 @@ HFILES = includes/push_swap.h \
 		 includes/push_swap_struct.h
 
 CC = gcc
-CFLAGS = -Wall -Wextra -g##################################################-Werror
+CFLAGS = -Wall -Wextra -Werror
 
 INC_DIR = includes/ \
 		  $(LIBFT_DIR)includes/ \
