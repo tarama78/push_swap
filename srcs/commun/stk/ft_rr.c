@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 17:40:22 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/15 19:54:36 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 22:54:16 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@
 
 #include <push_swap.h>
 
-void		ft_ra(t_a *a, int print)
+int			ft_ra(t_a *a, int print)
 {
 	t_stk	*stk;
 
 	if (a->stk_a == NULL || a->stk_a->next == NULL)
-		return ;
+		return (1);
 	stk = a->stk_a;
 	while (stk->next)
 		stk = stk->next;
@@ -41,14 +41,15 @@ void		ft_ra(t_a *a, int print)
 	stk->next->next = NULL;
 	if (print)
 		ft_printf(RA"\n");
+	return (1);
 }
 
-void		ft_rb(t_a *a, int print)
+int			ft_rb(t_a *a, int print)
 {
 	t_stk	*stk;
 
 	if (a->stk_b == NULL || a->stk_b->next == NULL)
-		return ;
+		return (1);
 	stk = a->stk_b;
 	while (stk->next)
 		stk = stk->next;
@@ -57,12 +58,14 @@ void		ft_rb(t_a *a, int print)
 	stk->next->next = NULL;
 	if (print)
 		ft_printf(RB"\n");
+	return (1);
 }
 
-void		ft_rr(t_a *a, int print)
+int			ft_rr(t_a *a, int print)
 {
 	ft_ra(a, 0);
 	ft_rb(a, 0);
 	if (print)
 		ft_printf(RR"\n");
+	return (1);
 }

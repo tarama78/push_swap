@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 16:15:32 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/16 11:46:20 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 22:54:16 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 
 #include <push_swap.h>
 
-void		ft_pa(t_a *a, int print)
+int			ft_pa(t_a *a, int print)
 {
 	t_stk	*stk;
 
 	if (a->stk_b == NULL)
-		return ;
+		return (1);
 	stk = a->stk_b;
 	a->stk_b = a->stk_b->next;
 	stk->next = a->stk_a;
@@ -40,14 +40,15 @@ void		ft_pa(t_a *a, int print)
 	a->sz_b--;
 	if (print)
 		ft_printf(PA"\n");
+	return (1);
 }
 
-void		ft_pb(t_a *a, int print)
+int			ft_pb(t_a *a, int print)
 {
 	t_stk	*stk;
 
 	if (a->stk_a == NULL)
-		return ;
+		return (1);
 	stk = a->stk_a;
 	a->stk_a = a->stk_a->next;
 	stk->next = a->stk_b;
@@ -56,4 +57,5 @@ void		ft_pb(t_a *a, int print)
 	a->sz_b++;
 	if (print)
 		ft_printf(PB"\n");
+	return (1);
 }

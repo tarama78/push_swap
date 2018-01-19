@@ -6,15 +6,16 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:37:47 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/17 15:22:18 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/18 22:54:15 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **   ____________________________________________________________
 **   | ft_create_stack.c                                        |
+**   |     ft_doublon(12 lines)                                 |
 **   |     ft_check_nb(13 lines)                                |
-**   |     ft_create_stack(11 lines)                            |
+**   |     ft_create_stack(20 lines)                            |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -67,6 +68,7 @@ void		ft_create_stack(t_a *a, int sz, char **arg)
 	i = sz;
 	a->sz_a = 0;
 	a->sz_b = 0;
+	a->stk_a = NULL;
 	a->stk_b = NULL;
 	while (--i >= 0)
 	{
