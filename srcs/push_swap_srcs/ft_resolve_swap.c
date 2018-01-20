@@ -106,6 +106,7 @@ static void	ft_recurs(t_a *a, int sz_sort, t_inf inf)
 	ft_recurs(a, sz2, SRC_A | DST_A);
 	ft_sort_bloc(a, sz_sort, inf);
 
+
 }
 
 void		ft_resolve_swap(t_a *a)
