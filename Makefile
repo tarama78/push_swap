@@ -25,7 +25,11 @@
 NAME_CHECK = checker
 NAME_SWAP = push_swap
 
+<<<<<<< HEAD
 ARG = 5 2 3 4 0 1 -1
+=======
+ARG = 5 2 3 4 1
+>>>>>>> 7fb6036bacf63c0edae659fc93ff8d9c49560832
 
 FILES_CHECK = main_check.c \
 			  ft_close_check.c \
