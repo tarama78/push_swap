@@ -113,6 +113,7 @@ void		ft_resolve_swap(t_a *a)
 	t_stk	*stk;
 
 	end = 0;
+
 	stk = a->stk_a;
 	if (stk->next == NULL)
 		return ;
