@@ -25,7 +25,7 @@
 NAME_CHECK = checker
 NAME_SWAP = push_swap
 
-ARG = 5 2 3 4 0 1 -1
+ARG = 5 2 3 4 0 1
 
 FILES_CHECK = main_check.c \
 			  ft_close_check.c \
