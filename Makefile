@@ -170,13 +170,13 @@ test:
 	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/KO/KO >>> FAIL!!!/g"
 
 open:
-	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile
+	@vim +Line `git config --get remote.origin.url | sed "s/..*/+SergeGit/"` $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile
 
 open_checker:
-	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS) Makefile
+	@vim +Line `git config --get remote.origin.url | sed "s/..*/+SergeGit/"` $(HFILES) $(SRCS_CHECK) $(SRCS) Makefile
 
 open_push_swap:
-	@vim +Line $(HFILES) $(SRCS_SWAP) $(SRCS) Makefile
+	@vim +Line `git config --get remote.origin.url | sed "s/..*/+SergeGit/"` $(HFILES) $(SRCS_SWAP) $(SRCS) Makefile
 
 norm:
 	@make -C $(LIBFT_DIR) norm
