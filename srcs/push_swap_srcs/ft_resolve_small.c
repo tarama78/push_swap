@@ -97,12 +97,14 @@ void		ft_resolve_small(t_a *a)
 {
 	t_small		inf;
 
+	ft_print(a);
 	inf.inf = NOTHING_SMALL;
 	inf.last_min = (t_ll)INT_MIN - 1;
 	inf.min = (t_ll)INT_MAX + 1;
 	ft_get_min(a, &inf.min, &inf.last_min, &inf.inf);
 	ft_put_nb_a_first(a, &inf);
 	inf.last_min = inf.min;
+	ft_print(a);
 	while (ft_is_sort(a, 0) == 0)
 	{
 		ft_get_min(a, &inf.min, &inf.last_min, &inf.inf);
@@ -111,5 +113,6 @@ void		ft_resolve_small(t_a *a)
 		else
 			ft_put_nb_b(a, (int*)&inf.min);
 		inf.last_min = inf.min;
+		ft_print(a);
 	}
 }

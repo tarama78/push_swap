@@ -59,10 +59,12 @@ void		ft_resolve_check(t_a *a)
 	char	*arg;
 	int		ret;
 
+	ft_print(a);
 	while ((ret = get_next_line(STDIN_FILENO, &arg)) == GNL_LINE_READ)
 	{
 		ft_forest(a, arg);
 		free(arg);
+		ft_print(a);
 	}
 	if (ret == GNL_ERROR)
 		ft_error();

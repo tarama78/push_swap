@@ -98,12 +98,14 @@ static void	ft_recurs(t_a *a, int sz_sort, t_inf inf)
 	if (sz_sort <= 3)
 	{
 		ft_sort_int(a, sz_sort, inf);
+		ft_print(a);
 		return ;
 	}
 	sz1 = sz_sort >> 1;
 	sz2 = ((sz_sort & 1) == 0) ? sz1 : sz1 + 1;
 	ft_recurs(a, sz1, SRC_A | DST_B);
 	ft_recurs(a, sz2, SRC_A | DST_A);
+	ft_print(a);
 	ft_sort_bloc(a, sz_sort, inf);
 }
 
@@ -112,6 +114,7 @@ void		ft_resolve_swap(t_a *a)
 	int		end;
 	t_stk	*stk;
 
+	ft_print(a);
 	end = 0;
 	stk = a->stk_a;
 	if (stk->next == NULL)
