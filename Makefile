@@ -25,7 +25,7 @@
 NAME_CHECK = checker
 NAME_SWAP = push_swap
 
-ARG = 2 5 6 8 9 7 10
+ARG = 5 2 3 4 0 1
 
 FILES_CHECK = main_check.c \
 			  ft_close_check.c \
@@ -170,13 +170,13 @@ test:
 	@./$(NAME_SWAP) $(ARG) | ./$(NAME_CHECK) $(ARG) | sed "s/KO/KO >>> FAIL!!!/g"
 
 open:
-	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile
+	@vim +Line `git config --get remote.origin.url | sed "s/..*/+SergeGit/"` $(HFILES) $(SRCS_CHECK) $(SRCS_SWAP) $(SRCS) Makefile
 
 open_checker:
-	@vim +Line $(HFILES) $(SRCS_CHECK) $(SRCS) Makefile
+	@vim +Line `git config --get remote.origin.url | sed "s/..*/+SergeGit/"` $(HFILES) $(SRCS_CHECK) $(SRCS) Makefile
 
 open_push_swap:
-	@vim +Line $(HFILES) $(SRCS_SWAP) $(SRCS) Makefile
+	@vim +Line `git config --get remote.origin.url | sed "s/..*/+SergeGit/"` $(HFILES) $(SRCS_SWAP) $(SRCS) Makefile
 
 norm:
 	@make -C $(LIBFT_DIR) norm

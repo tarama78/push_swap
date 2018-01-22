@@ -33,3 +33,15 @@ void		ft_stk_print(t_stk *stk)
 		ft_stk_print(stk->next);
 	}
 }
+
+void		ft_print(t_a *a)
+{
+	if (a->print)
+	{
+		ft_printf("{green}stack A:\n<<<\n");
+		ft_stk_print(a->stk_a);
+		ft_printf(">>>\n{magenta}stack B:\n<<<\n");
+		ft_stk_print(a->stk_b);
+		ft_printf(">>>\n{eoc}");
+	}
+}

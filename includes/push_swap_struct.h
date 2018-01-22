@@ -75,6 +75,7 @@ typedef struct		s_a
 	int				sz_a;
 	int				sz_b;
 	int				sz_list;
+	int				print;
 }					t_a;
 
 #endif

@@ -32,6 +32,7 @@ t_stk		*ft_stk_get(t_stk *first, int n);
 int			ft_stk_get_pos(t_stk *first, int nb);
 t_stk		*ft_stk_getlast(t_stk *first);
 void		ft_stk_print(t_stk *stk);
+void		ft_print(t_a *A);
 
 int			ft_sa(t_a *a, int print);
 int			ft_sb(t_a *a, int print);
