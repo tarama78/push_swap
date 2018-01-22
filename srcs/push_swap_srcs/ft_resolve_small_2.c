@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 18:21:08 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/22 11:35:20 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 14:49:16 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 **   | ft_resolve_small_2.c                                     |
 **   |     ft_put_nb_a_first_1(21 lines)                        |
 **   |     ft_put_nb_a_first_2(20 lines)                        |
+**   |     ft_sort_very_small(17 lines)                         |
 **   |     ft_put_nb_a_first(20 lines)                          |
 **   ------------------------------------------------------------
 **           __n__n__  /
@@ -74,6 +75,27 @@ static int	ft_put_nb_a_first_2(t_a *a, t_small *inf)
 		}
 	}
 	return (1);
+}
+
+void		ft_sort_very_small(t_a *a)
+{
+	if (a->sz_list == 2)
+		ft_sa(a, 1);
+	else if (a->stk_a->nb < a->stk_a->next->nb && a->stk_a->next->nb >
+			a->stk_a->next->next->nb && a->stk_a->nb < a->stk_a->next->next->nb)
+		ft_ra(a, 1) && ft_sa(a, 1) && ft_rra(a, 1);
+	else if (a->stk_a->nb > a->stk_a->next->nb &&
+			a->stk_a->nb < a->stk_a->next->next->nb)
+		ft_sa(a, 1);
+	else if (a->stk_a->nb < a->stk_a->next->nb &&
+			a->stk_a->nb > a->stk_a->next->next->nb)
+		ft_rra(a, 1);
+	else if (a->stk_a->nb > a->stk_a->next->nb &&
+			a->stk_a->next->nb < a->stk_a->next->next->nb)
+		ft_ra(a, 1);
+	else
+		ft_sa(a, 1) && ft_rra(a, 1);
+	ft_print(a);
 }
 
 void		ft_put_nb_a_first(t_a *a, t_small *inf)

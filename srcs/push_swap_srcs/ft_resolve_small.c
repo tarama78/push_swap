@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 10:50:22 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/22 11:35:20 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 14:47:24 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **   |     ft_get_min(5 lines)                                  |
 **   |     ft_put_nb_a(8 lines)                                 |
 **   |     ft_put_nb_b(13 lines)                                |
-**   |     ft_resolve_small(20 lines)                           |
+**   |     ft_resolve_small(25 lines)                           |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
@@ -94,6 +94,11 @@ void		ft_resolve_small(t_a *a)
 	t_small		inf;
 
 	ft_print(a);
+	if (a->sz_list <= 3)
+	{
+		ft_sort_very_small(a);
+		return ;
+	}
 	inf.inf = NOTHING_SMALL;
 	inf.last_min = (t_ll)INT_MIN - 1;
 	inf.min = (t_ll)INT_MAX + 1;

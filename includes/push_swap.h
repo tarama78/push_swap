@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:27:40 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/22 11:35:19 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 14:47:23 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void		ft_sort_bloc(t_a *a, int sz_sort, t_inf inf);
 void		ft_resolve_swap(t_a *a);
 void		ft_put_nb_a_first(t_a *a, t_small *inf);
 void		ft_get_min(t_a *a, t_ll *min, t_ll *last_min, t_inf_small *inf);
+void		ft_sort_very_small(t_a *a);
 void		ft_resolve_small(t_a *a);
 void		ft_close_swap(t_a *a);
 
