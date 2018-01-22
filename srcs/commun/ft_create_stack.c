@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:37:47 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 22:54:15 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 11:27:22 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void		ft_create_stack(t_a *a, int sz, char **arg)
 	a->stk_b = NULL;
 	while (--i >= 0)
 	{
+		if (ft_strlen(arg[i]) >= 11)
+			ft_error();
 		if (ft_check_nb(arg[i], &nb) == ERROR)
 		{
 			if (i < sz - 1)
