@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:42:46 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 22:54:15 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 11:35:21 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 #include <push_swap.h>
 
-void		ft_error()
+void		ft_error(void)
 {
 	ft_dprintf(STDERR_FILENO, ERROR_MSG);
 	exit(EXIT_FAILURE);

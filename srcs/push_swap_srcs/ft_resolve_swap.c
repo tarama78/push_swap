@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 19:21:06 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/19 18:10:13 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 11:35:20 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 **   | ft_resolve_swap.c                                        |
 **   |     ft_sort_int_2(25 lines)                              |
 **   |     ft_sort_int(25 lines)                                |
-**   |     ft_move_start(18 lines)                              |
-**   |     ft_move_end(8 lines)                                 |
-**   |     ft_sort_bloc(25 lines)                               |
-**   |     ft_recurs(13 lines)                                  |
-**   |     ft_resolve_swap(19 lines)                            |
-**   | MEUUUU too many functions                                |
+**   |     ft_recurs(15 lines)                                  |
+**   |     ft_resolve_swap(20 lines)                            |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/

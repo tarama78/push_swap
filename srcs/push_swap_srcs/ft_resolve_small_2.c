@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 18:21:08 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/19 18:21:08 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 11:35:20 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	ft_put_nb_a_first_2(t_a *a, t_small *inf)
 {
 	int		i;
 
-	i= -1;
+	i = -1;
 	ft_get_min(a, &inf->min2, &inf->last_min2, &inf->inf);
 	if (inf->inf & MIN_A)
 	{
@@ -70,7 +70,7 @@ static int	ft_put_nb_a_first_2(t_a *a, t_small *inf)
 			ft_ra(a, 1);
 			inf->min = inf->min2;
 			inf->last_min = inf->last_min2;
-			return (0);;
+			return (0);
 		}
 	}
 	return (1);

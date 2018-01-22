@@ -6,7 +6,7 @@
 /*   By: tnicolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 10:50:22 by tnicolas          #+#    #+#             */
-/*   Updated: 2018/01/18 22:54:15 by tnicolas         ###   ########.fr       */
+/*   Updated: 2018/01/22 11:35:20 by tnicolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 **   | ft_resolve_small.c                                       |
 **   |     ft_get_min_stk(18 lines)                             |
 **   |     ft_get_min(5 lines)                                  |
-**   |     ft_put_nb_a_first_1(21 lines)                        |
-**   |     ft_put_nb_a_first_2(20 lines)                        |
-**   |     ft_put_nb_a_first(20 lines)                          |
 **   |     ft_put_nb_a(8 lines)                                 |
 **   |     ft_put_nb_b(13 lines)                                |
-**   |     ft_resolve_small(17 lines)                           |
-**   | MEUUUU too many functions                                |
+**   |     ft_resolve_small(20 lines)                           |
 **   ------------------------------------------------------------
 **           __n__n__  /
 **    .------`-\00/-'/
