@@ -31,7 +31,14 @@ int			main(int ac, char **av)
 
 	if (ac >= 2)
 	{
-		ft_create_stack(&a, ac - 1, av + 1);
+		a.print = 0;
+		if (ac >= 3 && ft_strcmp("-v", av[1]) == 0)
+		{
+			a.print = 1;
+			ft_create_stack(&a, ac - 2, av + 2);
+		}
+		else
+			ft_create_stack(&a, ac - 1, av + 1);
 		ft_resolve_check(&a);
 		ft_is_sort(&a, 1);
 		ft_close_check(&a);
